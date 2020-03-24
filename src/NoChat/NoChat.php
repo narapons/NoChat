@@ -54,7 +54,7 @@ class NoChat extends PluginBase implements Listener
                             break;
                         }
                         if (!$this->list->exists($args[1])) {
-                            $sender->sendmessage("[Nochat] §c{$args[1]}はチャットを制限されていません");
+                            $sender->sendmessage("[NoChat] §c{$args[1]}はチャットを制限されていません");
                             break;
                         }
                         $sender->sendmessage("[NoChat] §e{$args[1]}のチャットの使用の制限を解除しました");
@@ -95,7 +95,7 @@ class NoChat extends PluginBase implements Listener
             case "me":
             case "say":
                 if ($this->list->exists($event->getSender()->getName())) {
-                    $event->getSender()->sendmessage("§cあなたは-チャットの使用を制限されています");
+                    $event->getSender()->sendmessage("§cあなたはチャットの使用を制限されています");
                     $event->setCancelled();
                 }
                 break;
