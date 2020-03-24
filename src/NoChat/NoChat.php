@@ -35,6 +35,10 @@ class NoChat extends PluginBase implements Listener
                 }
                 switch ($args[0]) {
                     case "add":
+                        if(!$sender->isOp()){
+                            $sender=>sendMessage("§cコマンドを実行する権限がありません");
+                            break;
+                        }
                         if (!isset($args[1]) or !isset($args[2])) {
                             $sender->sendmessage("[NoChat] §c/nochat add 名前 理由");
                             break;
@@ -43,7 +47,7 @@ class NoChat extends PluginBase implements Listener
                             $sender->sendmessage("[Nochat] §c{$args[1]}は既にチャットの使用を制限されています");
                             break;
                         }
-                        $this->getServer()->broadcastMessage("[NoChat] §e{$args[1]}のチャットの使用を制限しました");
+                        $this->getServer()->broadcastMessage("[NoChat] §e{$sender->getName()}が{$args[1]}のチャットの使用を制限しました");
                         $this->getServer()->broadcastMessage("[NoChat] §e理由 : {$args[2]}");
                         $this->list->set($args[1], $args[2]);
                         $this->list->save();
@@ -54,7 +58,7 @@ class NoChat extends PluginBase implements Listener
                             break;
                         }
                         if (!$this->list->exists($args[1])) {
-                            $sender->sendmessage("[NoChat] §c{$args[1]}はチャットを制限されていません");
+                            $sender->sendmessage("[Nohat] §c{$args[1]}はチャットを制限されていません");
                             break;
                         }
                         $sender->sendmessage("[NoChat] §e{$args[1]}のチャットの使用の制限を解除しました");
