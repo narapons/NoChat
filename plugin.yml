@@ -1,0 +1,10 @@
+name: NoChat
+main: NoChat\NoChat
+api: 3.0.0
+version: 1.0.0
+author: narapon
+
+commands:
+  nochat:
+    usage: "/nochat <add|remove|list>"
+    description: チャット使用制限
