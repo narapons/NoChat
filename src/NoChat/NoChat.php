@@ -36,7 +36,7 @@ class NoChat extends PluginBase implements Listener
                 switch ($args[0]) {
                     case "add":
                         if(!$sender->isOp()){
-                            $sender=>sendMessage("§cコマンドを実行する権限がありません");
+                            $sender->sendMessage("§cコマンドを実行する権限がありません");
                             break;
                         }
                         if (!isset($args[1]) or !isset($args[2])) {
