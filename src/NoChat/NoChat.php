@@ -61,7 +61,7 @@ class NoChat extends PluginBase implements Listener
                             $sender->sendmessage("[Nohat] §c{$args[1]}はチャットを制限されていません");
                             break;
                         }
-                        $sender->sendmessage("[NoChat] §e{$args[1]}のチャットの使用の制限を解除しました");
+                        $this->getServer()->broadcastMessage("[NoChat] §e{$sender->getName()}が{$args[1]}のチャットの使用の制限を解除しました");
                         $this->list->remove($args[1]);
                         $this->list->save();
                         break;
